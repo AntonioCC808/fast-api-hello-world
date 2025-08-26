@@ -10,7 +10,7 @@ Este script:
 import uvicorn
 import dotenv
 
-from database.initializer import init_db
+from fastapi_candidatos.database.initializer import init_db
 
 if __name__ == "__main__":
     # Cargar variables de entorno desde .env

@@ -1,0 +1,33 @@
+version: "3.9"
+
+services:
+  api:
+    build: .
+    container_name: candidatos_api
+    command: ["micromamba", "run", "-n", "base", "python", "-m", "fastapi_candidatos.main"]
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    depends_on:
+      - db
+    restart: always
+    volumes:
+      - .:/app   # opcional, útil en desarrollo para autoreload
+
+  db:
+    image: mysql:8.0
+    container_name: candidatos_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: candidatos
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:

@@ -1,5 +1,11 @@
-name: fastapi-candidatos
 channels:
   - conda-forge
   - defaults
-prefix: /home/cuadradot/software/miniconda/envs/fastapi-candidatos
+dependencies:
+  - fastapi
+  - pandas
+  - sqlalchemy
+  - notebook
+  - pydantic-settings
+  - pymysql
+  - cryptography
