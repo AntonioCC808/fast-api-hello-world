@@ -1,0 +1,5 @@
+name: fastapi-candidatos
+channels:
+  - conda-forge
+  - defaults
+prefix: /home/cuadradot/software/miniconda/envs/fastapi-candidatos
